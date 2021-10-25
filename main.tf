@@ -27,13 +27,6 @@ data "aws_ami" "ubuntu" {
     owners = ["099720109477"] # Canonical
 }
 
-locals {
-  web_instance_type_map = {
-    stage = "t3.micro"
-    prod = "t3.large"
-  }
-}
-
 resource "aws_instance" "aws_instance" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t3.micro"
